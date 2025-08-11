@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import ServiceCard from './components/ServiceCard';
 import SearchBar from './components/SearchBar';
 import './index.css';
@@ -13,9 +12,13 @@ function App() {
 
   const fetchServices = async () => {
     try {
-      const res = await axios.get(API_URL);
-      setServices(res.data);
-      setFiltered(res.data);
+      const res = await fetch(API_URL);
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      setServices(data);
+      setFiltered(data);
     } catch (err) {
       console.error('Failed to fetch:', err);
     }
@@ -26,8 +29,10 @@ function App() {
   }, []);
 
   const handleSearch = () => {
-    if (!query.trim()) return setFiltered(services);
-
+    if (!query.trim()) {
+      setFiltered(services);
+      return;
+    }
     const result = services.filter((s) =>
       s.location.toLowerCase().includes(query.toLowerCase())
     );
