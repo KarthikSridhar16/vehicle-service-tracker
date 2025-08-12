@@ -27,10 +27,13 @@ export default function ServiceDetails() {
 
   return (
     <div className="container">
-      <h1>Service Details</h1>
-      <div className="table-wrap">
+      <h1 >Service Details</h1>
+
+        <div className="details-card" style={{ maxWidth: 980, margin: '0 auto 16px' }}>
+        {/* <div className="details-card-header">Service Details</div> */}
+
         <table className="details-table">
-          <tbody>
+            <tbody>
             <tr><th>Service Provider</th><td>{item.service_provider}</td></tr>
             <tr><th>Location</th><td>{item.location}</td></tr>
             <tr><th>Vehicle Type</th><td>{item.vehicle_type}</td></tr>
@@ -38,17 +41,21 @@ export default function ServiceDetails() {
             <tr><th>Service Details</th><td>{item.service_details}</td></tr>
             <tr><th>Date of Service</th><td>{item.date_of_service}</td></tr>
             <tr><th>Date of Delivery</th><td>{item.date_of_delivery}</td></tr>
-            <tr><th>Service Amount</th><td>₹{item.service_amount}</td></tr>
+            <tr>
+                <th>Service Amount</th>
+                <td className="details-amount">₹{item.service_amount}</td>
+            </tr>
             <tr><th>Contact</th><td>{item.contact}</td></tr>
             <tr><th>Insurance Due Date</th><td>{item.insurance_due_date}</td></tr>
             <tr><th>ID</th><td>{item.id}</td></tr>
-          </tbody>
+            </tbody>
         </table>
-      </div>
+        </div>
 
-      <p style={{ marginTop: 16 }}>
-        <Link to="/">← Back to list</Link>
-      </p>
+        <p style={{ maxWidth: 980, margin: '0 auto' }}>
+        <Link to="/" className="details-back">← Back to list</Link>
+        </p>
+
     </div>
   );
 }
