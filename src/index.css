@@ -48,7 +48,7 @@ h1 {
 }
 
 .card {
-  background: white;
+  background: #fff;
   padding: 0;
   border: 2px solid #000;
   border-radius: 12px;
@@ -57,45 +57,186 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
 }
+
 
 .card-header {
   background-color: #f1f1f1;
   border-bottom: 1px solid #ccc;
-  padding: 10px;
+  padding: 8px 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  text-align: center;
+
+  display: grid;
+  grid-template-columns: 28px 1fr 28px; 
+  align-items: center;
+  column-gap: 8px;
 }
 
-.card-header h3 {
+
+.card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.card-title h3 {
   margin: 0;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
+.card-title .location,
 .card-header p {
   margin: 2px 0 0;
-  font-size: 14px;
+  font-size: 13.5px;
   font-style: italic;
+  color: #555;
+}
+
+.icon-btn {
+  width: 28px;             /* fixed clickable area */
+  height: 28px;
+  border-radius: 50%;      /* perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;              /* remove extra padding */
+  cursor: pointer;
+}
+
+/* Keep the PNG small and centered */
+.icon-btn img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;     /* prevent stretching */
+}
+
+/* Edit button color */
+.icon-edit {
+  background-color: #007bff;  /* blue */
+}
+.icon-edit:hover {
+  background-color: #0056b3;
+}
+
+/* Delete button color */
+.icon-delete {
+  background-color: #dc3545;  /* red */
+}
+.icon-delete:hover {
+  background-color: #a71d2a;
 }
 
 .card-content {
   padding: 12px 16px;
 }
-
 .card-content p {
-  margin: 4px 0;
+  margin: 6px 0;
   font-size: 14px;
 }
 
 .card-amount {
-  margin-top: 12px;
-  font-weight: bold;
+  margin-top: 10px;
+  font-weight: 800;
   font-size: 18px;
 }
 
+
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.details-table th,
+.details-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.details-table th {
+  width: 220px;
+  background: #f7f7f7;
+  font-weight: 600;
+}
+.btn-primary{
+  background:#007bff;color:#fff;border:none;border-radius:6px;
+  padding:10px 14px;cursor:pointer;font-size:14px
+}
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.form {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 6px;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #efefef;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+}
