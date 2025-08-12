@@ -1,8 +1,11 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(135deg, #FFD700 0%, #000000 100%);
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  background-attachment: fixed;
+  color: #fff; 
 }
 
 .container {
@@ -13,6 +16,10 @@ body {
 
 h1 {
   text-align: center;
+  color: #111; /* Elegant deep black */
+  font-size: 28px;
+  font-weight: bold;
+  background: transparent; /* Let background gradient show */
 }
 
 .search-bar {
@@ -25,21 +32,34 @@ h1 {
   flex: 1;
   padding: 10px;
   font-size: 16px;
+  background: rgba(255, 255, 255, 0.85); 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  border-color: #000; /* Black focus outline */
 }
 
 .search-bar button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #007bff;
+  background: linear-gradient(145deg, #000000, #333333); /* Elegant black gradient */
   color: white;
   border: none;
   border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .search-bar button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(145deg, #111111, #444444); /* Slightly lighter on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
 }
+
 
 .card-grid {
   display: grid;
@@ -48,42 +68,40 @@ h1 {
 }
 
 .card {
-  background: #fff;
+  background: #fffaf0; 
+  color: #222;
   padding: 0;
-  border: 2px solid #000;
-  border-radius: 12px;
+  border: none;
+  border-radius: 14px;
   overflow: hidden;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .card:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
 }
 
-
 .card-header {
-  background-color: #f1f1f1;
-  border-bottom: 1px solid #ccc;
+  background: linear-gradient(to right, #fef7e0, #fff3c6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding: 8px 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-
   display: grid;
-  grid-template-columns: 28px 1fr 28px; 
+  grid-template-columns: 28px 1fr 28px;
   align-items: center;
   column-gap: 8px;
 }
 
-
 .card-title {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  text-align: center;
 }
 
 .card-title h3 {
@@ -92,48 +110,45 @@ h1 {
   font-weight: 700;
 }
 
-.card-title .location,
-.card-header p {
-  margin: 2px 0 0;
+.card-title .location {
+  margin-top: 2px;
   font-size: 13.5px;
   font-style: italic;
-  color: #555;
+  color: #666;
 }
 
 .icon-btn {
-  width: 28px;             /* fixed clickable area */
+  width: 28px;
   height: 28px;
-  border-radius: 50%;      /* perfect circle */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;              /* remove extra padding */
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-/* Keep the PNG small and centered */
 .icon-btn img {
   width: 16px;
   height: 16px;
-  object-fit: contain;     /* prevent stretching */
+  object-fit: contain;
 }
 
-/* Edit button color */
 .icon-edit {
-  background-color: #007bff;  /* blue */
+  background-color: #007bff;
 }
 .icon-edit:hover {
   background-color: #0056b3;
 }
 
-/* Delete button color */
 .icon-delete {
-  background-color: #dc3545;  /* red */
+  background-color: #dc3545;
 }
 .icon-delete:hover {
   background-color: #a71d2a;
 }
 
+/* Card Body */
 .card-content {
   padding: 12px 16px;
 }
@@ -146,6 +161,7 @@ h1 {
   margin-top: 10px;
   font-weight: 800;
   font-size: 18px;
+  color: #b58900;
 }
 
 
@@ -226,17 +242,42 @@ h1 {
 }
 
 .btn-primary {
-  background: #007bff;
-  color: #fff;
-  border-color: #007bff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(180deg, #FFD700, #FFA500);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
-  background: #0056b3;
-  border-color: #0056b3;
+  background: linear-gradient(90deg, #FF8C00, #FFC107); 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 1px;
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+
+/* Make labels visible on white form background */
+.form label {
+  color: #333;            /* dark text */
+  font-weight: 600;       /* optional: make labels stand out */
+}
+
+/* Inputs keep dark text too (for safety) */
+.form input {
+  color: #111;
+}
+
+/* Helper text readable */
+.form .help {
+  color: #6b7280;         /* neutral gray */
 }
