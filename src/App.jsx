@@ -94,6 +94,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/service/:id" element={<ServiceDetails />} />
        <Route path="/create" element={<CreateServiceRequest />} />
+       <Route path="/edit/:id" element={<CreateServiceRequest />} />
     </Routes>
   );
 }

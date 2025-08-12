@@ -17,7 +17,10 @@ function ServiceCard({ service, onDelete, onEdit }) {
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && goToDetails()}
     >
       <div className="card-header">
-        <div className="icon-btn icon-edit" onClick={() => onEdit(service.id)}>
+        <div className="icon-btn icon-edit"  onClick={(e) => {
+          e.stopPropagation();
+          navigate(`/edit/${service.id}`);
+        }}>
           <img src={editIcon} alt="Edit" />
         </div>
 
